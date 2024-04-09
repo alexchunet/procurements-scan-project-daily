@@ -7,6 +7,7 @@ import chromedriver_binary
 from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import os
+import ast
 import pandas as pd
 from sodapy import Socrata
 import time
@@ -112,7 +113,7 @@ def main():
     msg = MIMEMultipart()
     msg['Subject'] = "WB Project Procurements screening"
     sender = 'alex.chunet@gmail.com'
-    recipients = os.environ['recipients']
+    recipients = ast.literal_eval(os.environ['recipients'])
     emaillist = [elem.strip().split(',') for elem in recipients]
 
     def send_email(sbjt, msg):
