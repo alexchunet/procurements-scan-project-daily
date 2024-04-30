@@ -1,5 +1,5 @@
 # requirements.txt
-chromedriver-binary==121.0.6167.85.0 #123.0.6312.105
+chromedriver-binary==123.0.6312.105  #121.0.6167.85.0
 selenium==4.11.2
 requests==2.26.0
 gspread==4.0.1
