@@ -60,6 +60,7 @@ def main():
     results_df['scan'] = 'Not treated'
     print
     print("Main table structured: "+str(len(results_df.index))+"rows")
+    print(results_df)
 
     # Key words
     browser = webdriver.Chrome(service=service, options=chrome_options)
