@@ -64,7 +64,7 @@ def main():
 
     # Key words
     browser = webdriver.Chrome(service=service, options=chrome_options)
-    key_words = ['C@ribNET', 'earth observation', 'Earth Observation', ' EO ', 'GIS ', ' GIS', 'geospatial', 'Geospatial', 'geographic information', 'Geographic information', 'imagery', 'Imagery', 'geotechnical', 'Geotechnical', 'remote sensing', 'Remote sensing', 'satellite', 'Satellite', 'télédétection', 'Télédétection', 'géospatial', 'Géospatial', 'SIG ', ' SIG,', 'satélite', 'Satélite', 'teledetección', 'Teledetección', 'geoespacial', 'Geoespacial', 'observación de la tierra', 'Observación de la tierra','observação da terra', 'Observação da Terra', 'informação geográfica', 'Informação geográfica', 'geotecnico', 'Geotecnico', 'deteção remota', 'Deteção remota']
+    key_words = ['earth observation', 'Earth Observation', ' EO ', 'GIS ', ' GIS', 'geospatial', 'Geospatial', 'geographic information', 'Geographic information', 'imagery', 'Imagery', 'geotechnical', 'Geotechnical', 'remote sensing', 'Remote sensing', 'satellite', 'Satellite', 'télédétection', 'Télédétection', 'géospatial', 'Géospatial', 'SIG ', ' SIG,', 'satélite', 'Satélite', 'teledetección', 'Teledetección', 'geoespacial', 'Geoespacial', 'observación de la tierra', 'Observación de la tierra','observação da terra', 'Observação da Terra', 'informação geográfica', 'Informação geográfica', 'geotecnico', 'Geotecnico', 'deteção remota', 'Deteção remota']
 
     # Initialize browser and screen each page for the keywords
     browser = webdriver.Chrome(service=service, options=chrome_options)
