@@ -45,7 +45,7 @@ def main():
     # Query table
     client = Socrata("finances.worldbank.org", '4lAjROKl9GysVT07fl34yIlL4')
     today = pd.to_datetime("today")
-    week_prior =  today - datetime.timedelta(days=1)
+    week_prior =  today - datetime.timedelta(days=3)
     results = client.get("3y7n-xmbj", where=str('submission_date >'+"'"+str(week_prior.date())+"'"))
     results_df = pd.DataFrame.from_records(results)
     trigger = 0
