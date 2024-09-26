@@ -42,12 +42,30 @@ def main():
     chrome_options.page_load_strategy = 'normal'
     print("Options added")
 
-    # Query table
-    client = Socrata("finances.worldbank.org", '4lAjROKl9GysVT07fl34yIlL4')
+    # Input variables
     today = pd.to_datetime("today")
-    week_prior =  today - datetime.timedelta(days=3)
-    results = client.get("3y7n-xmbj", where=str('submission_date >'+"'"+str(week_prior.date())+"'"))
-    results_df = pd.DataFrame.from_records(results)
+    last_week = list(range(1,8))
+    api_calls = []
+    results_df = pd.DataFrame()
+
+    # Shape API calls for each day
+    for i in last_week:
+      day =  today - datetime.timedelta(days=i)
+      day = day.strftime('%d-%b-%Y')
+      api_calls.append("https://datacatalogapi.worldbank.org/dexapps/fone/api/apiservice?datasetId=DS00979&resourceId=RS00909&filter=publication_date="+"'"+str(day)+"'"+"&top=1000&type=json")
+
+    # Query APIs
+    for i in api_calls:
+      url = i
+      try:
+          response = requests.get(url)
+          response.raise_for_status()  # Raise an exception for 4XX and 5XX status codes
+          data = response.json()  # Parse the JSON response
+          print(data)  # Print the response data
+      except requests.RequestException as e:
+          print(f'Error: {e}')
+      results_df = pd.concat([results_df, pd.DataFrame.from_records(data['data'])], ignore_index=True)
+        
     trigger = 0
     if len(results_df)>0:
         # Correct date format
