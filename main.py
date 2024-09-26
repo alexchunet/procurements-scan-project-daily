@@ -69,12 +69,12 @@ def main():
     trigger = 0
     if len(results_df)>0:
         # Correct date format
-        results_df['submission_date'] = results_df['submission_date'].str.replace('T',' ').str[:-4]
-        results_df['submission_date'] = pd.to_datetime(results_df['submission_date'])
+        results_df['publication_date'] = results_df['publication_date'].str.replace('T',' ').str[:-4]
+        results_df['publication_date'] = pd.to_datetime(results_df['publication_date'])
         # Filter only procurement notices
         results_df = results_df[results_df['notice_type'] != 'Contract Award']
         # Filter only services
-        results_df = results_df[(results_df['procurement_group_desc'] != 'Works') & (results_df['procurement_group_desc'] != 'Goods')]
+        results_df = results_df[(results_df['procurement_category'] != 'Works') & (results_df['procurement_category'] != 'Goods')]
         # Add treatment column
         results_df['scan'] = 'Not treated'
         print
