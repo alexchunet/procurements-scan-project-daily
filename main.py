@@ -87,9 +87,8 @@ def main():
         browser = webdriver.Chrome(service=service, options=chrome_options)
         print("Browser initialized")
         for index, row in results_df.iterrows():
-            print(results_df.loc[index, 'url']['url'])
-            url = results_df.loc[index, 'url']['url']
-            results_df.loc[index, 'url'] = url
+            print(results_df.loc[index, 'url'])
+            url = results_df.loc[index, 'url']
             # Initialize a new browser
             browser.get(url)
             html = browser.page_source
