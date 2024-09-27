@@ -69,7 +69,6 @@ def main():
     trigger = 0
     if len(results_df)>0:
         # Correct date format
-        results_df['publication_date'] = results_df['publication_date'].str.replace('T',' ').str[:-4]
         results_df['publication_date'] = pd.to_datetime(results_df['publication_date'])
         # Filter only procurement notices
         results_df = results_df[results_df['notice_type'] != 'Contract Award']
